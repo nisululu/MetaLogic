@@ -1,0 +1,92 @@
+@import '../../mixins.scss';
+
+.footer {
+    background: url("https://metalogic.com.np/herobg.svg");
+    padding: 50px;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+
+    .top {
+        display: flex;
+        justify-content: space-between;
+        color: rgba(255, 255, 255, 0.8);
+        gap: 20px;
+
+        @include lg {
+            align-items: center;
+            flex-direction: column;
+        }
+
+        .company-info {
+            .logo {
+                display: flex;
+                align-items: center;
+                gap: 10px;
+
+                @include lg {
+                    margin-left: -28px;
+                }
+
+                img {
+                    width: 25px;
+                }
+            }
+
+            ul>li {
+                margin-left: 35px;
+
+                @include lg {
+                    margin-left: 10px;
+                }
+            }
+        }
+
+        .social-media {
+            @include sm {
+                margin-left: -35px;
+            }
+        }
+
+        .middle {
+            @include lg {
+                margin-left: -65px;
+            }
+        }
+
+        .company-info,
+        .middle>.company,
+        .middle>.join,
+        .services,
+        .social-media {
+            span {
+                font-size: 16px;
+                font-weight: 600;
+
+                @include sm {
+                    font-size: 14px;
+                    line-height: 1rem;
+                }
+            }
+
+            ul {
+                list-style-type: none;
+                padding: 10px 0;
+
+                li {
+                    cursor: pointer;
+                    font-weight: 200;
+                    font-size: 14px;
+                    line-height: 1.8rem;
+                }
+            }
+        }
+    }
+    .bottom{
+        text-align: center;
+        color: rgba(255, 255, 255, 0.8);
+        @include sm{
+            font-size: 12px;
+        }
+    }
+}

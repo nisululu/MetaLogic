@@ -1,0 +1,166 @@
+@import '../../mixins.scss';
+
+.navbar{
+    position: fixed;
+    width: 100%;
+    padding: 12px 32px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    transition: all ease .5s;
+    z-index: 1;
+
+    &.show {
+        background-color: rgba(255, 255, 255, 0.25);
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+    }
+
+    &.hide {
+        transform: translateY(-100px);
+    }
+
+    .logo{
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        font-weight: bolder;
+        .logo-img{
+            width: 50px;
+            @include sm{
+                width: 25px;
+            }
+        }
+
+        .logo-text {
+            font-size: 30px;
+            @include sm{
+                font-size: 24px;
+            }
+        }
+    }
+
+    .menu-items {
+        list-style-type: none;
+        align-items: center;
+        display: flex;
+        @include lg {
+            display: none;
+        }
+
+        .menu-item {
+            position: relative;
+            font-weight: 600 !important;
+            text-decoration: none;
+            color: black;
+            cursor: pointer;
+            margin: 0 20px;
+            font-weight: 500;
+            &:hover::after{
+                    position: absolute;
+                    content: "";
+                    width: 60%;
+                    height: 2px;
+                    left: 0;
+                    background-color: #E53B3A;
+                    animation: active .3s ease-in-out;
+            }
+
+                &.active::after{
+                   position: absolute;
+                   content: "";
+                   width: 60%;
+                   height: 2px;
+                   left: 0;
+                   background-color: #E53B3A;
+                   animation: active .2s ease-in-out;
+                }
+        }
+        .mobile-btn{
+            display: none;
+        }
+    }
+    .btn{
+        button{
+            font-weight: 600;
+            color: white;
+            padding: 10px 18px;
+            border-radius: 5px;
+            outline: none;
+            border: none;
+            background-color: #E53B3A;
+            @include lg{
+                display: none;
+            }
+        }
+    }
+
+    .hamburger{
+        color: #E53B3A;
+        width: 30px;
+        display: none;
+        @include lg{
+            display:block;
+        }
+    }
+    &.mobileView{
+        .menu-items {
+            display: flex;
+            flex-direction: column;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            justify-content: center;
+            background-color: white;
+            animation: animate .4s ease-in-out ;
+            .close-btn{
+                color:#E53B3A;
+                width: 30px;
+                position: absolute;
+                top: 20px;
+                right: 32px;
+            }
+        .menu-item {
+            font-weight: 600 !important;
+            text-decoration: none;
+            margin: 20px 0;
+            font-weight: 500;
+            .mobile-btn{
+                display: block;
+            }
+        }
+        .mobile-btn{
+            display: block;
+            button{
+                font-weight: 600;
+                color: white;
+                padding: 10px 18px;
+                border-radius: 5px;
+                outline: none;
+                border: none;
+                background-color: #E53B3A;
+            }
+        }  
+    }
+    }
+}
+
+@keyframes animate {
+    0%{
+        transform: translateX(-100%);
+    }
+    100%{
+        transform: translateX(0%);
+    }
+}
+
+@keyframes active {
+    0%{
+        width: 0;
+    }
+    100%{
+        width: 60%;
+    }
+}

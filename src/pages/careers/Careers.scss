@@ -1,0 +1,429 @@
+@import "../../mixins.scss";
+
+.sub-section-1,
+.sub-section-2,
+.sub-section-3,
+.sub-section-4,
+.sub-section-5,
+.sub-section-6 {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    h3 {
+        color: #E53B3A;
+        font-size: 20px;
+
+        @include sm {
+            font-size: 16px;
+        }
+    }
+
+    h2 {
+        width: 90%;
+        text-align: center;
+
+        @include sm {
+            font-size: 20px;
+        }
+    }
+
+    p {
+        font-weight: 300;
+        width: 600px;
+        text-align: center;
+
+        @include sm {
+            width: 90%;
+        }
+    }
+}
+
+.sub-section-2,
+.sub-section-3,
+.sub-section-4,
+.sub-section-5,
+.sub-section-6 {
+    padding: 100px 0;
+
+    h3 {
+        padding: 0 0 15px 0;
+    }
+}
+
+.sub-section-1 {
+    position: relative;
+    min-height: 100vh;
+
+    h1 {
+        font-size: 60px;
+        width: 600px;
+        text-align: center;
+
+        @include sm {
+            font-size: 30px;
+            width: 90%
+        }
+
+        span {
+            color: #E53B3A;
+        }
+    }
+
+    h3 {
+        font-weight: 600;
+        padding: 48px 0;
+    }
+
+    p {
+        width: 300px;
+        text-align: center;
+        padding: 40px 0;
+
+        @include sm {
+            width: 90%;
+        }
+    }
+
+    button {
+        width: 300px;
+        font-size: 14px;
+        font-weight: 600;
+        color: white;
+        padding: 10px 0;
+        border-radius: 5px;
+        outline: none;
+        border: none;
+        background-color: #E53B3A;
+
+        @include sm {
+            width: 90%;
+        }
+    }
+
+    img {
+        position: absolute;
+        z-index: -1;
+        top: 100px;
+        right: 50px;
+    }
+}
+
+.sub-section-2 {
+    background-color: rgba(211, 211, 211, 0.3);
+
+    p {
+        padding: 10px 0 25px 0;
+        width: 600px;
+        text-align: center;
+
+        @include sm {
+            width: 90%
+        }
+    }
+
+    .wrapper {
+        .values-cards {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            row-gap: 50px;
+            flex-shrink: 0;
+
+            @include xl {
+                justify-content: center;
+                gap: 20px;
+            }
+
+            .values-card {
+                border: 1px solid rgba(255, 255, 255, 0);
+                border-radius: 10px;
+                background-color: white;
+                width: 360px;
+                padding: 40px 30px;
+                box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.1);
+                transition: all .5s ease-in-out;
+
+                p {
+                    width: auto;
+                    text-align: justify;
+                }
+
+                h4 {
+                    padding: 10px 0;
+                }
+
+                img {
+                    width: 50px;
+                    transition: all .2s ease-in-out;
+                }
+
+                &:hover {
+                    border: 1px solid #E53B3A;
+
+                    img {
+                        filter: drop-shadow(3px 5px 2px rgb(0 0 0 / 0.4));
+                    }
+                }
+            }
+        }
+    }
+}
+
+.sub-section-3 {
+    h2 {
+        padding: 0 0 25px 0;
+    }
+
+    .wrapper {
+        .benefits-cards {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            row-gap: 20px;
+
+            @include xl {
+                justify-content: center;
+                gap: 20px;
+            }
+
+            .benefits-card {
+                width: 280px;
+                padding: 40px 30px;
+                border-radius: 10px;
+                background-color: white;
+                box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.1);
+                border: 1px solid rgba(255, 255, 255, 0);
+                transition: all .5s ease-in-out;
+
+                img {
+                    width: 50px;
+                    transition: all .2s ease-in-out;
+                }
+
+                h4 {
+                    padding: 12px 0;
+                }
+
+                p {
+                    width: auto;
+                    text-align: justify;
+                }
+
+                &:hover {
+                    border: 1px solid #E53B3A;
+
+                    img {
+                        filter: drop-shadow(3px 5px 2px rgb(0 0 0 / 0.4));
+                    }
+                }
+            }
+        }
+    }
+}
+
+.sub-section-4 {
+    background-color: rgba(211, 211, 211, 0.3);
+    overflow: hidden;
+
+    p {
+        width: 600px;
+        text-align: center;
+        padding: 15px 0 25px 0;
+
+        @include sm {
+            width: 90%;
+        }
+    }
+
+    .facilities-cards {
+        max-width: 1200px;
+        margin: auto;
+        display: flex;
+        flex-wrap: nowrap;
+        gap: 50px;
+        overflow: hidden;
+
+        @include xl {
+            width: 90%;
+        }
+
+        .facilities-card {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            gap: 20px;
+            border: 1px solid rgba(255, 255, 255, 0);
+            border-radius: 10px;
+            background-color: white;
+            min-width: 360px;
+            padding: 40px 30px;
+            box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.1);
+            transition: all .5s ease-in-out;
+            animation: scroller 10s linear infinite;
+
+            img {
+                width: 50px;
+                transition: all .2s ease-in-out;
+            }
+
+            &:hover {
+                border: 1px solid #E53B3A;
+
+                img {
+                    filter: drop-shadow(3px 5px 2px rgb(0 0 0 / 0.4));
+                }
+            }
+        }
+    }
+}
+
+.sub-section-5 {
+    h2 {
+        padding: 0 0 25px 0;
+    }
+
+    .form {
+        display: flex;
+        flex-direction: column;
+        width: 80%;
+        margin: auto;
+        gap: 20px;
+
+        input,
+        select {
+            border: 1px solid rgba(0, 0, 0, 0.15);
+            border-radius: 4px;
+            padding: 10px 8px;
+            font-size: 16px;
+            outline: none;
+        }
+
+        button {
+            font-size: 14px;
+            width: 100%;
+            font-weight: 600;
+            color: white;
+            padding: 10px 0;
+            border-radius: 5px;
+            outline: none;
+            border: none;
+            background-color: #E53B3A;
+        }
+    }
+
+    .job-offers {
+        padding: 50px 0;
+        width: 80%;
+        margin: auto;
+
+        h5 {
+            font-size: 16px;
+            padding: 0 0 15px 0;
+        }
+
+        .job-offer {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 20px;
+            align-items: center;
+
+            @include sm {
+                flex-direction: column;
+                align-items: start;
+                gap: 10px;
+            }
+
+            h6 {
+                font-size: 14px;
+                font-weight: 500;
+                width: 200px;
+            }
+
+            .type {
+                width: 100px;
+            }
+
+            .location {
+                width: 300px;
+            }
+
+            .type,
+            .location {
+                font-size: 14px;
+                font-weight: 300;
+            }
+
+            button {
+                font-size: 14px;
+                color: #E53B3A;
+                padding: 10px 20px;
+                width: 100px;
+                border-radius: 5px;
+                border: 1px solid #E53B3A;
+                transition: all .3s ease-in-out;
+
+                &.apply:hover {
+                    background-color: #E53B3A;
+                    color: white;
+                }
+            }
+        }
+    }
+}
+
+.sub-section-6 {
+    background-color: rgba(211, 211, 211, 0.3);
+
+    p {
+        padding: 25px 0;
+
+        @include sm {
+            width: 90%
+        }
+    }
+
+    form {
+        display: flex;
+        flex-direction: column;
+        width: 80%;
+        margin: auto;
+        gap: 20px;
+
+        input {
+            border: 1px solid rgba(0, 0, 0, 0.15);
+            border-radius: 4px;
+            padding: 10px 8px;
+            font-size: 16px;
+            outline: none;
+        }
+
+        button {
+            font-size: 14px;
+            width: 100%;
+            font-weight: 600;
+            color: white;
+            padding: 10px 0;
+            border-radius: 5px;
+            outline: none;
+            border: none;
+            background-color: #E53B3A;
+        }
+    }
+}
+
+button:hover {
+    cursor: pointer;
+}
+
+@keyframes scroller {
+    0% {
+        transform: translateX(0%);
+    }
+
+    100% {
+        transform: translateX(-684%);
+    }
+}
