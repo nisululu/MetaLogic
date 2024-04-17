@@ -55,7 +55,7 @@ const Header = () => {
 
   return (
     <header className={`navbar ${mobileMenu ? "mobileView" : ""} ${show}`}>
-      <div className="logo">
+      <div className="logo" onClick={()=>handleNavigate("home")}>
         <img className='logo-img' src="./meta.png" alt="" />
         <span className='logo-text'>MetaLogic</span>
       </div>

@@ -1,7 +1,8 @@
-import React, { Fragment, useRef } from 'react'
+import React, { Fragment, useRef, useState } from 'react'
 import './Careers.scss'
 import { facilities, benefits, values, jobOffers } from '../../metaData'
 import Wrapper from '../../components/wrapper/Wrapper'
+import Modal from '../../components/modal/Modal'
 
 const Careers = () => {
 
@@ -11,10 +12,13 @@ const Careers = () => {
     e.preventDefault()
   }
 
+  const [open, setOpen] = useState(false)
+
   return (
     <Fragment>
 
-      <section className='sub-section-1'> 
+      <section className='sub-section-1'>
+        <span className='i' onClick={()=>setOpen(true)}>i</span>
         <img src='./bg-18.png' alt="" />
         <h3>Careers</h3>
         <h1>Navigate Your Next <span>Career</span> Move</h1>
@@ -23,6 +27,8 @@ const Careers = () => {
           behavior: "smooth"
         })}>Explore Opportunities</button>
       </section>
+
+      <Modal open={open} setOpen={setOpen} />
 
       <section className='sub-section-2'>
         <h3>Values</h3>
@@ -104,21 +110,19 @@ const Careers = () => {
             <h5>{jobOffers.length} Job Offers</h5>
             {jobOffers.map((item, index) => {
               return (
-                <>
                   <div className="job-offer" key={index}>
                     <h6>{item.title}</h6>
                     <span className='type'>{item.type}</span>
                     <span className='location'>{item.location}</span>
                     <button className={item.status ? "apply" : ""} disabled={item.status ? false : true}>{item.status ? "Apply" : "Closed"}</button>
                   </div>
-                </>
               )
             })}
           </div>
 
         </Wrapper>
       </section>
-      
+
       <section className="sub-section-6">
         <h2>Subscribe to out News Letters</h2>
         <p>Stay informed, inspired, and equipped with the latest trends and breakthroughs in your field.</p>

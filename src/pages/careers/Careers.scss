@@ -57,6 +57,18 @@
     position: relative;
     min-height: 100vh;
 
+    .i{
+        position: absolute;
+        top: 100px;
+        right: 50px;
+        background-color: #E53B3A;
+        width: 25px;
+        height: 25px;
+        border-radius: 50%;
+        text-align: center;
+        color: white;
+        cursor: pointer;
+    }
     h1 {
         font-size: 60px;
         width: 600px;
