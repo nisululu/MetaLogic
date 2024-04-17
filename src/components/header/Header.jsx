@@ -9,19 +9,13 @@ const Header = () => {
   const [mobileMenu, setMobileMenu] = useState(false)
   const location = useLocation()
   const navigate = useNavigate()
-
+  const [homecursor, setHomecursor] = useState(false)
   const exactLocation = location.pathname.split("/")
-  const list = [
-    "Home",
-    "Services",
-    "Careers",
-    "Blogs",
-    "About"
-  ]
+
 
   useEffect(() => {
     window.scrollTo(0, 0)
-  }, location)
+  }, [location])
 
   const controlHeader = () => { //function to calc window scroll for nav hide effect
     if (window.scrollY > 300) {
@@ -45,7 +39,13 @@ const Header = () => {
 
   const handleNavigate = (item) => { //for navigation purpose
     setMobileMenu(false)
-    item == "Home" ? navigate(`/`) : navigate(`/${item}`)
+    if (item == "home") {
+      navigate("/")
+      setHomecursor(true)
+    } else {
+      navigate(`/${item}`)
+      setHomecursor(false)
+    }
   }
 
   useEffect(() => {
@@ -55,7 +55,7 @@ const Header = () => {
 
   return (
     <header className={`navbar ${mobileMenu ? "mobileView" : ""} ${show}`}>
-      <div className="logo" onClick={()=>handleNavigate("Home")}>
+      <div className="logo" onClick={() => handleNavigate("home")}>
         <img className='logo-img' src="./meta.png" alt="" />
         <span className='logo-text'>MetaLogic</span>
       </div>
@@ -66,11 +66,13 @@ const Header = () => {
             <path fill="currentColor" d="M7.219 5.781L5.78 7.22L14.563 16L5.78 24.781l1.44 1.439L16 17.437l8.781 8.782l1.438-1.438L17.437 16l8.782-8.781L24.78 5.78L16 14.563z" />
           </svg>
         </div>
-        {
-          list.map((item, index) => {
-            return <div key={index} className={`menu-item ${exactLocation[1] == item ? "active" : ""}`} onClick={()=>handleNavigate(`${item}`)}><li>{item}</li></div>
-          })
-        }
+
+        <div className={`menu-item  ${homecursor === true ? "active" : ""}`} onClick={() => handleNavigate("home")}><li>Home</li></div>
+        <div className={`menu-item ${exactLocation[1] === "services" ? "active" : ""}`} onClick={() => handleNavigate("services")}><li>Services</li></div>
+        <div className={`menu-item ${exactLocation[1] === "careers" ? "active" : ""}`} onClick={() => handleNavigate("careers")}><li>Careers</li></div>
+        <div className={`menu-item ${exactLocation[1] === "blogs" ? "active" : ""}`} onClick={() => handleNavigate("blogs")}><li>Blogs</li></div>
+        <div className={`menu-item ${exactLocation[1] === "about" ? "active" : ""}`} onClick={() => handleNavigate("about")}><li>About Us</li></div>
+
 
         <div className='mobile-btn'>
           <button>Get in Touch</button>
