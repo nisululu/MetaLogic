@@ -45,7 +45,7 @@ const Header = () => {
 
   const handleNavigate = (item) => { //for navigation purpose
     setMobileMenu(false)
-    navigate(`/${item}`)
+    item == "Home" ? navigate(`/`) : navigate(`/${item}`)
   }
 
   useEffect(() => {
@@ -55,7 +55,7 @@ const Header = () => {
 
   return (
     <header className={`navbar ${mobileMenu ? "mobileView" : ""} ${show}`}>
-      <div className="logo" onClick={()=>handleNavigate("home")}>
+      <div className="logo" onClick={()=>handleNavigate("Home")}>
         <img className='logo-img' src="./meta.png" alt="" />
         <span className='logo-text'>MetaLogic</span>
       </div>
